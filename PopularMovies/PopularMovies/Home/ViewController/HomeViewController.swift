@@ -7,30 +7,29 @@
 
 import UIKit
 
-final class HomeViewController: UIViewController, ViewConfiguration {
+final class HomeViewController: BaseViewController {
     let movies: [Movie] = [
         Movie(id: 1, title: "Órfã 2: A Origem", releaseDate: "2022-07-27", image: nil, overview: "", voteAverage: 7.2),
         Movie(id: 2, title: "Minions 2: A Origem de Gru", releaseDate: "2022-06-29", image: nil, overview: "", voteAverage: 7.8),
         Movie(id: 3, title: "Thor: Amor e Trovão", releaseDate: "2022-07-06", image: nil, overview: "", voteAverage: 6.8),
-        Movie(id: 4, title: "Avatar", releaseDate: "2009-12-18", image: nil, overview: "", voteAverage: 8.8),
+        Movie(id: 4, title: "Avatar", releaseDate: "2009-12-18", image: nil, overview: "", voteAverage: 8.8)
     ]
 
     private lazy var tableView: UITableView = {
         let tableView = UITableView()
         tableView.translatesAutoresizingMaskIntoConstraints = false
+        tableView.separatorStyle = .none
+        tableView.backgroundColor = .clear
         return tableView
     }()
 
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        buildLayout()
-    }
-
-    func buildViewHierarchy() {
+    override func buildViewHierarchy() {
+        super.buildViewHierarchy()
         view.addSubview(tableView)
     }
 
-    func setupConstraints() {
+    override func setupConstraints() {
+        super.setupConstraints()
         NSLayoutConstraint.activate([
             tableView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
             tableView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
@@ -39,12 +38,12 @@ final class HomeViewController: UIViewController, ViewConfiguration {
         ])
     }
 
-    func configureViews() {
+    override  func configureViews() {
+        super.configureViews()
         title = "Filmes Populares"
-        view.backgroundColor = .white
-        navigationController?.navigationBar.prefersLargeTitles = true
         tableView.dataSource = self
         tableView.register(UITableViewCell.self, forCellReuseIdentifier: "Cell")
+        tableView.reloadData()
     }
 }
 
@@ -55,6 +54,8 @@ extension HomeViewController: UITableViewDataSource {
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath)
+        cell.backgroundColor = .clear
+        cell.textLabel?.textColor = .white
         cell.textLabel?.text = movies[indexPath.row].title
         return cell
     }
