@@ -16,8 +16,7 @@ final class HomeViewController: BaseViewController {
     ]
 
     private lazy var tableView: UITableView = {
-        let tableView = UITableView()
-        tableView.translatesAutoresizingMaskIntoConstraints = false
+        let tableView = UITableView(useAutoLayout: true)
         tableView.separatorStyle = .none
         tableView.backgroundColor = .clear
         return tableView
@@ -42,7 +41,7 @@ final class HomeViewController: BaseViewController {
         super.configureViews()
         title = "Filmes Populares"
         tableView.dataSource = self
-        tableView.register(UITableViewCell.self, forCellReuseIdentifier: "Cell")
+        tableView.register(MovieTableViewCell.self, forCellReuseIdentifier: "MovieTableViewCell")
         tableView.reloadData()
     }
 }
@@ -53,10 +52,11 @@ extension HomeViewController: UITableViewDataSource {
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath)
-        cell.backgroundColor = .clear
-        cell.textLabel?.textColor = .white
-        cell.textLabel?.text = movies[indexPath.row].title
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: "MovieTableViewCell", for: indexPath) as? MovieTableViewCell else {
+            return UITableViewCell()
+        }
+
+        cell.configure(model: movies[indexPath.row])
         return cell
     }
 }
