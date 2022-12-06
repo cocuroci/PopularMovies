@@ -12,20 +12,35 @@ protocol HomeInteracting {
 }
 
 final class HomeInteractor: HomeInteracting {
+    private var configuration: Configuration = .empty
     private var movies: [Movie] = []
-    private let dataFetcher: PopularMoviesDataFetching
+    private let moviesDataFetcher: PopularMoviesDataFetching
+    private let configurationDataFetcher: ConfigurationDataFetching
     private let presenter: HomePresenting
 
-    init(dataFetcher: PopularMoviesDataFetching, presenter: HomePresenting) {
-        self.dataFetcher = dataFetcher
+    init(
+        moviesDataFetcher: PopularMoviesDataFetching,
+        configurationDataFetcher: ConfigurationDataFetching,
+        presenter: HomePresenting
+    ) {
+        self.moviesDataFetcher = moviesDataFetcher
+        self.configurationDataFetcher = configurationDataFetcher
         self.presenter = presenter
     }
 
     func getPopularMovies() {
         Task {
-            movies = await dataFetcher.getPopularMovies()
+            configuration = await configurationDataFetcher.configuration()
+            movies = await moviesDataFetcher.getPopularMovies()
+            await configureImagePaths(configuration: configuration, movies: movies)
             await present(movies: movies)
         }
+    }
+
+    private func configureImagePaths(configuration: Configuration, movies: [Movie]) async {
+        let imagesSecureBaseURL = configuration.images.secureBaseURL ?? ""
+        let imagesSize = configuration.images.logoSizes.first{ $0 == "w300" } ?? ""
+        self.movies = movies.map { .init(movie: $0, imagePath: imagesSecureBaseURL + imagesSize + $0.image) }
     }
 
     @MainActor

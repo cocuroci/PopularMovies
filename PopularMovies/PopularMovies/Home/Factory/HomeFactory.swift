@@ -11,9 +11,15 @@ enum HomeFactory {
     typealias Parameters = Void
 
     static func make(_ parameters: Parameters) -> UIViewController {
-        let dataFetcher = PopularMoviesDataFetcher(network: Network())
+        let network = Network()
         let presenter = HomePresenter()
-        let interactor = HomeInteractor(dataFetcher: dataFetcher, presenter: presenter)
+        let moviesDataFetcher = PopularMoviesDataFetcher(network: network)
+        let configurationDataFetcher = ConfigurationDataFetcher(network: network)
+        let interactor = HomeInteractor(
+            moviesDataFetcher: moviesDataFetcher,
+            configurationDataFetcher: configurationDataFetcher,
+            presenter: presenter
+        )
         let viewController = HomeViewController(interactor: interactor)
 
         presenter.viewController = viewController

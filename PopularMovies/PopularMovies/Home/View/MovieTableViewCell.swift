@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import Kingfisher
 
 final class MovieTableViewCell: UITableViewCell, ViewConfiguration {
     private enum Layout {
@@ -30,8 +31,9 @@ final class MovieTableViewCell: UITableViewCell, ViewConfiguration {
 
     private let avatarImageView: UIImageView = {
         let imageView = UIImageView(useAutoLayout: true)
-        imageView.backgroundColor = .red
+        imageView.contentMode = .scaleAspectFill
         imageView.layer.cornerRadius = Layout.imageCornerRadius
+        imageView.layer.masksToBounds = true
         return imageView
     }()
 
@@ -93,6 +95,8 @@ final class MovieTableViewCell: UITableViewCell, ViewConfiguration {
     func configure(model: Movie) {
         titleLabel.text = model.title
         dateLabel.text = model.releaseDate
+        avatarImageView.kf.indicatorType = .activity
+        avatarImageView.kf.setImage(with: URL(string: model.image))
     }
 
     override func prepareForReuse() {
@@ -100,5 +104,6 @@ final class MovieTableViewCell: UITableViewCell, ViewConfiguration {
         titleLabel.text = nil
         dateLabel.text = nil
         avatarImageView.image = nil
+        avatarImageView.kf.cancelDownloadTask()
     }
 }

@@ -55,6 +55,7 @@ final class HomeViewController: BaseViewController {
         super.configureViews()
         title = "Filmes Populares"
         tableView.dataSource = self
+        tableView.delegate = self
         tableView.register(MovieTableViewCell.self, forCellReuseIdentifier: "MovieTableViewCell")
     }
 }
@@ -71,6 +72,12 @@ extension HomeViewController: UITableViewDataSource {
 
         cell.configure(model: movies[indexPath.row])
         return cell
+    }
+}
+
+extension HomeViewController: UITableViewDelegate {
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        tableView.deselectRow(at: indexPath, animated: false)
     }
 }
 
