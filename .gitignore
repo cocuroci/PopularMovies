@@ -66,9 +66,22 @@ playground.xcworkspace
 
 Carthage/Build/
 
-# Accio dependency management
-Dependencies/
-.accio/
+# Xcode generated files
+*.DS_Store
+*.xcodeproj
+*.xcworkspace
+
+# Xcode
+*.pbxuser
+*.mode1v3
+*.mode2v3
+*.perspectivev3
+*.xcuserstate
+project.xcworkspace/
+xcuserdata/
+upload_dsym_results
+default.profraw
+.package.resolved
 
 # fastlane
 #
