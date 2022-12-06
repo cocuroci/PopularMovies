@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		650CE6EE293C2902007126B9 /* HomePresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 650CE6ED293C2902007126B9 /* HomePresenter.swift */; };
 		659F8C222936341D0019F73F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 659F8C212936341D0019F73F /* AppDelegate.swift */; };
 		659F8C242936341D0019F73F /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 659F8C232936341D0019F73F /* SceneDelegate.swift */; };
 		659F8C2B2936341F0019F73F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 659F8C2A2936341F0019F73F /* Assets.xcassets */; };
@@ -29,6 +30,9 @@
 		659F8C82293C11950019F73F /* NetworkError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 659F8C81293C11950019F73F /* NetworkError.swift */; };
 		659F8C88293C18A70019F73F /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 659F8C87293C18A70019F73F /* Constants.swift */; };
 		659F8C8A293C1A430019F73F /* MoviesResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = 659F8C89293C1A430019F73F /* MoviesResult.swift */; };
+		659F8C8D293C20930019F73F /* PopularMoviesDataFetcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = 659F8C8C293C20930019F73F /* PopularMoviesDataFetcher.swift */; };
+		659F8C8F293C21580019F73F /* PopularMoviesEndpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 659F8C8E293C21580019F73F /* PopularMoviesEndpoint.swift */; };
+		659F8C92293C24660019F73F /* HomeInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 659F8C91293C24660019F73F /* HomeInteractor.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -49,6 +53,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		650CE6ED293C2902007126B9 /* HomePresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomePresenter.swift; sourceTree = "<group>"; };
 		659F8C1E2936341D0019F73F /* PopularMovies.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PopularMovies.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		659F8C212936341D0019F73F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		659F8C232936341D0019F73F /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -75,6 +80,9 @@
 		659F8C81293C11950019F73F /* NetworkError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkError.swift; sourceTree = "<group>"; };
 		659F8C87293C18A70019F73F /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		659F8C89293C1A430019F73F /* MoviesResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoviesResult.swift; sourceTree = "<group>"; };
+		659F8C8C293C20930019F73F /* PopularMoviesDataFetcher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopularMoviesDataFetcher.swift; sourceTree = "<group>"; };
+		659F8C8E293C21580019F73F /* PopularMoviesEndpoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopularMoviesEndpoint.swift; sourceTree = "<group>"; };
+		659F8C91293C24660019F73F /* HomeInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeInteractor.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -102,6 +110,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		650CE6EC293C28F5007126B9 /* Presenter */ = {
+			isa = PBXGroup;
+			children = (
+				650CE6ED293C2902007126B9 /* HomePresenter.swift */,
+			);
+			path = Presenter;
+			sourceTree = "<group>";
+		};
 		659F8C152936341D0019F73F = {
 			isa = PBXGroup;
 			children = (
@@ -157,6 +173,9 @@
 		659F8C51293635A40019F73F /* Home */ = {
 			isa = PBXGroup;
 			children = (
+				650CE6EC293C28F5007126B9 /* Presenter */,
+				659F8C90293C24510019F73F /* Interactor */,
+				659F8C8B293C207C0019F73F /* DataFetcher */,
 				659F8C662937D34A0019F73F /* View */,
 				659F8C5C29363AD10019F73F /* Model */,
 				659F8C55293635E30019F73F /* Factory */,
@@ -260,6 +279,23 @@
 				659F8C81293C11950019F73F /* NetworkError.swift */,
 			);
 			path = Networking;
+			sourceTree = "<group>";
+		};
+		659F8C8B293C207C0019F73F /* DataFetcher */ = {
+			isa = PBXGroup;
+			children = (
+				659F8C8C293C20930019F73F /* PopularMoviesDataFetcher.swift */,
+				659F8C8E293C21580019F73F /* PopularMoviesEndpoint.swift */,
+			);
+			path = DataFetcher;
+			sourceTree = "<group>";
+		};
+		659F8C90293C24510019F73F /* Interactor */ = {
+			isa = PBXGroup;
+			children = (
+				659F8C91293C24660019F73F /* HomeInteractor.swift */,
+			);
+			path = Interactor;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -392,19 +428,23 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				650CE6EE293C2902007126B9 /* HomePresenter.swift in Sources */,
 				659F8C5E29363AE30019F73F /* Movie.swift in Sources */,
 				659F8C702938E0160019F73F /* Networking.swift in Sources */,
 				659F8C57293635F20019F73F /* HomeFactory.swift in Sources */,
 				659F8C682937D3690019F73F /* MovieTableViewCell.swift in Sources */,
 				659F8C222936341D0019F73F /* AppDelegate.swift in Sources */,
 				659F8C5B293636890019F73F /* ViewConfiguration.swift in Sources */,
+				659F8C8D293C20930019F73F /* PopularMoviesDataFetcher.swift in Sources */,
 				659F8C242936341D0019F73F /* SceneDelegate.swift in Sources */,
 				659F8C88293C18A70019F73F /* Constants.swift in Sources */,
+				659F8C8F293C21580019F73F /* PopularMoviesEndpoint.swift in Sources */,
 				659F8C8A293C1A430019F73F /* MoviesResult.swift in Sources */,
 				659F8C62293789560019F73F /* BaseViewController.swift in Sources */,
 				659F8C6B2937DD6B0019F73F /* UIView+Autolayout.swift in Sources */,
 				659F8C82293C11950019F73F /* NetworkError.swift in Sources */,
 				659F8C54293635C30019F73F /* HomeViewController.swift in Sources */,
+				659F8C92293C24660019F73F /* HomeInteractor.swift in Sources */,
 				659F8C7B293A481E0019F73F /* HTTPMethod.swift in Sources */,
 				659F8C79293A457D0019F73F /* Endpoint.swift in Sources */,
 				659F8C7D293A48620019F73F /* Network.swift in Sources */,

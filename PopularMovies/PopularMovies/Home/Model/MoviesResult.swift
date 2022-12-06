@@ -8,5 +8,5 @@
 import Foundation
 
 struct MoviesResult: Decodable {
-    let result: [Movie]
+    let results: [Movie]
 }
