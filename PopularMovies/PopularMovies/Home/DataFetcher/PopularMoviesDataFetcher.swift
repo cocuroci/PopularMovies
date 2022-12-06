@@ -23,7 +23,6 @@ final class PopularMoviesDataFetcher: PopularMoviesDataFetching {
             let results: MoviesResult = try await network.request(with: PopularMoviesEndpoint.popular)
             return results.results
         } catch {
-            debugPrint(error)
             return []
         }
     }

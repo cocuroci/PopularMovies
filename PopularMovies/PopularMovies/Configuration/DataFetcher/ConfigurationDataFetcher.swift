@@ -23,7 +23,6 @@ final class ConfigurationDataFetcher: ConfigurationDataFetching {
             let configuration: Configuration = try await network.request(with: ConfigurationEndpoint())
             return configuration
         } catch {
-            debugPrint(error)
             return .empty
         }
     }
