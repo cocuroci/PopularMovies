@@ -22,7 +22,8 @@ final class HomeCoordinator: HomeCoordinating {
     func perform(action: HomeAction) {
         switch action {
         case let .detail(with: movie):
-            viewController?.navigationController?.pushViewController(BaseViewController(), animated: true)
+            let detailViewController = DetailFactory.make(movie)
+            viewController?.navigationController?.pushViewController(detailViewController, animated: true)
         }
     }
 }

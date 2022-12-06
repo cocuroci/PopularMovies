@@ -28,5 +28,6 @@ class BaseViewController: UIViewController, ViewConfiguration {
     func configureViews() {
         gradientLayer.frame = view.bounds
         view.layer.insertSublayer(gradientLayer, at: 0)
+        navigationItem.backBarButtonItem = .init(title: "Voltar")
     }
 }

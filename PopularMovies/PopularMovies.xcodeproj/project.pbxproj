@@ -13,6 +13,10 @@
 		650CE6FA293F6E0B007126B9 /* ConfigurationEndpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 650CE6F9293F6E0B007126B9 /* ConfigurationEndpoint.swift */; };
 		650CE6FD293F6FC2007126B9 /* ConfigurationDataFetcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = 650CE6FC293F6FC2007126B9 /* ConfigurationDataFetcher.swift */; };
 		650CE700293F88B9007126B9 /* HomeCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 650CE6FF293F88B9007126B9 /* HomeCoordinator.swift */; };
+		650CE707293F8D34007126B9 /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 650CE706293F8D34007126B9 /* DetailViewController.swift */; };
+		650CE70A293F8DD0007126B9 /* DetailFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 650CE709293F8DD0007126B9 /* DetailFactory.swift */; };
+		650CE70C293F9399007126B9 /* DetailInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 650CE70B293F9399007126B9 /* DetailInteractor.swift */; };
+		650CE70E293F94A2007126B9 /* DetailPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 650CE70D293F94A2007126B9 /* DetailPresenter.swift */; };
 		659F8C222936341D0019F73F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 659F8C212936341D0019F73F /* AppDelegate.swift */; };
 		659F8C242936341D0019F73F /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 659F8C232936341D0019F73F /* SceneDelegate.swift */; };
 		659F8C2B2936341F0019F73F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 659F8C2A2936341F0019F73F /* Assets.xcassets */; };
@@ -63,6 +67,10 @@
 		650CE6F9293F6E0B007126B9 /* ConfigurationEndpoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfigurationEndpoint.swift; sourceTree = "<group>"; };
 		650CE6FC293F6FC2007126B9 /* ConfigurationDataFetcher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfigurationDataFetcher.swift; sourceTree = "<group>"; };
 		650CE6FF293F88B9007126B9 /* HomeCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeCoordinator.swift; sourceTree = "<group>"; };
+		650CE706293F8D34007126B9 /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
+		650CE709293F8DD0007126B9 /* DetailFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailFactory.swift; sourceTree = "<group>"; };
+		650CE70B293F9399007126B9 /* DetailInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailInteractor.swift; sourceTree = "<group>"; };
+		650CE70D293F94A2007126B9 /* DetailPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailPresenter.swift; sourceTree = "<group>"; };
 		659F8C1E2936341D0019F73F /* PopularMovies.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PopularMovies.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		659F8C212936341D0019F73F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		659F8C232936341D0019F73F /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -170,6 +178,49 @@
 			path = Coordinator;
 			sourceTree = "<group>";
 		};
+		650CE701293F8C70007126B9 /* Detail */ = {
+			isa = PBXGroup;
+			children = (
+				650CE703293F8C87007126B9 /* Presenter */,
+				650CE704293F8C8F007126B9 /* Interactor */,
+				650CE702293F8C7A007126B9 /* Factory */,
+				650CE705293F8CA9007126B9 /* ViewController */,
+			);
+			path = Detail;
+			sourceTree = "<group>";
+		};
+		650CE702293F8C7A007126B9 /* Factory */ = {
+			isa = PBXGroup;
+			children = (
+				650CE709293F8DD0007126B9 /* DetailFactory.swift */,
+			);
+			path = Factory;
+			sourceTree = "<group>";
+		};
+		650CE703293F8C87007126B9 /* Presenter */ = {
+			isa = PBXGroup;
+			children = (
+				650CE70D293F94A2007126B9 /* DetailPresenter.swift */,
+			);
+			path = Presenter;
+			sourceTree = "<group>";
+		};
+		650CE704293F8C8F007126B9 /* Interactor */ = {
+			isa = PBXGroup;
+			children = (
+				650CE70B293F9399007126B9 /* DetailInteractor.swift */,
+			);
+			path = Interactor;
+			sourceTree = "<group>";
+		};
+		650CE705293F8CA9007126B9 /* ViewController */ = {
+			isa = PBXGroup;
+			children = (
+				650CE706293F8D34007126B9 /* DetailViewController.swift */,
+			);
+			path = ViewController;
+			sourceTree = "<group>";
+		};
 		659F8C152936341D0019F73F = {
 			isa = PBXGroup;
 			children = (
@@ -193,10 +244,11 @@
 		659F8C202936341D0019F73F /* PopularMovies */ = {
 			isa = PBXGroup;
 			children = (
-				650CE6F4293F6D16007126B9 /* Configuration */,
 				659F8C87293C18A70019F73F /* Constants.swift */,
+				650CE6F4293F6D16007126B9 /* Configuration */,
 				659F8C6E2938DFFD0019F73F /* Networking */,
 				659F8C58293636760019F73F /* Util */,
+				650CE701293F8C70007126B9 /* Detail */,
 				659F8C51293635A40019F73F /* Home */,
 				659F8C5F29363F7F0019F73F /* Start */,
 				659F8C2A2936341F0019F73F /* Assets.xcassets */,
@@ -489,6 +541,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				650CE6EE293C2902007126B9 /* HomePresenter.swift in Sources */,
+				650CE70A293F8DD0007126B9 /* DetailFactory.swift in Sources */,
 				659F8C5E29363AE30019F73F /* Movie.swift in Sources */,
 				659F8C702938E0160019F73F /* Networking.swift in Sources */,
 				659F8C57293635F20019F73F /* HomeFactory.swift in Sources */,
@@ -498,11 +551,14 @@
 				650CE700293F88B9007126B9 /* HomeCoordinator.swift in Sources */,
 				659F8C8D293C20930019F73F /* PopularMoviesDataFetcher.swift in Sources */,
 				650CE6F6293F6D30007126B9 /* ImagesPath.swift in Sources */,
+				650CE70C293F9399007126B9 /* DetailInteractor.swift in Sources */,
 				659F8C242936341D0019F73F /* SceneDelegate.swift in Sources */,
 				659F8C88293C18A70019F73F /* Constants.swift in Sources */,
 				659F8C8F293C21580019F73F /* PopularMoviesEndpoint.swift in Sources */,
+				650CE707293F8D34007126B9 /* DetailViewController.swift in Sources */,
 				650CE6FD293F6FC2007126B9 /* ConfigurationDataFetcher.swift in Sources */,
 				659F8C8A293C1A430019F73F /* MoviesResult.swift in Sources */,
+				650CE70E293F94A2007126B9 /* DetailPresenter.swift in Sources */,
 				650CE6FA293F6E0B007126B9 /* ConfigurationEndpoint.swift in Sources */,
 				659F8C62293789560019F73F /* BaseViewController.swift in Sources */,
 				659F8C6B2937DD6B0019F73F /* UIView+Autolayout.swift in Sources */,
