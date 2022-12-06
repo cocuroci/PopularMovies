@@ -8,6 +8,9 @@
 import UIKit
 
 class BaseViewController: UIViewController, ViewConfiguration {
+    override var preferredStatusBarStyle: UIStatusBarStyle {
+        .lightContent
+    }
 
     private lazy var gradientLayer: CAGradientLayer = {
         let gradientLayer = CAGradientLayer()
