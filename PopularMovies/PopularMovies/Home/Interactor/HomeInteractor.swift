@@ -9,6 +9,7 @@ import Foundation
 
 protocol HomeInteracting {
     func getPopularMovies()
+    func didSelectMovie(with indexPath: IndexPath)
 }
 
 final class HomeInteractor: HomeInteracting {
@@ -35,6 +36,15 @@ final class HomeInteractor: HomeInteracting {
             await configureImagePaths(configuration: configuration, movies: movies)
             await present(movies: movies)
         }
+    }
+
+    func didSelectMovie(with indexPath: IndexPath) {
+        guard movies.indices.contains(indexPath.row) else {
+            return
+        }
+
+        let selectedMovies = movies[indexPath.row]
+        presenter.presentDetail(movie: selectedMovies)
     }
 
     private func configureImagePaths(configuration: Configuration, movies: [Movie]) async {

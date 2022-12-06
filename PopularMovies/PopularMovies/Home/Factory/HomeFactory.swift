@@ -12,7 +12,8 @@ enum HomeFactory {
 
     static func make(_ parameters: Parameters) -> UIViewController {
         let network = Network()
-        let presenter = HomePresenter()
+        let coordinator = HomeCoordinator()
+        let presenter = HomePresenter(coordinator: coordinator)
         let moviesDataFetcher = PopularMoviesDataFetcher(network: network)
         let configurationDataFetcher = ConfigurationDataFetcher(network: network)
         let interactor = HomeInteractor(
@@ -22,6 +23,7 @@ enum HomeFactory {
         )
         let viewController = HomeViewController(interactor: interactor)
 
+        coordinator.viewController = viewController
         presenter.viewController = viewController
 
         return viewController

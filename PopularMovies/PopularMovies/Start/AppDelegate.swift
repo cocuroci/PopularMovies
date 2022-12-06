@@ -13,6 +13,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
         UINavigationBar.appearance().titleTextAttributes = [.foregroundColor: UIColor.white]
         UINavigationBar.appearance().largeTitleTextAttributes = [.foregroundColor: UIColor.white]
+        UINavigationBar.appearance().tintColor = .white
 
         return true
     }
