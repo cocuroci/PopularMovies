@@ -8,7 +8,7 @@ let project = Project(
     ],
     settings: nil,
     targets: [
-        .init(
+        Target(
             name: "PopularMovies",
             platform: .iOS,
             product: .app,
@@ -19,7 +19,17 @@ let project = Project(
             dependencies: [
                 .package(product: "Kingfisher")
             ]
+        ),
+        Target(
+            name: "PopularMoviesTests",
+            platform: .iOS,
+            product: .unitTests,
+            bundleId: "br.com.cocuroci.PopularMoviesTests",
+            infoPlist: "PopularMovies/Sources/Info.plist",
+            sources: ["PopularMoviesTests/**"],
+            dependencies: [
+                .target(name: "PopularMovies")
+            ]
         )
-    ],
-    schemes: []
+    ]
 )
