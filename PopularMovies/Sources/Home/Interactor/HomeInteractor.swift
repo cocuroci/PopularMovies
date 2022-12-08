@@ -33,8 +33,7 @@ final class HomeInteractor: HomeInteracting {
         Task {
             configuration = await configurationDataFetcher.configuration()
             movies = await moviesDataFetcher.getPopularMovies()
-            await configureImagePaths(configuration: configuration, movies: movies)
-            await present(movies: movies)
+            await present(movies: movies, configuration: configuration)
         }
     }
 
@@ -44,17 +43,11 @@ final class HomeInteractor: HomeInteracting {
         }
 
         let selectedMovies = movies[indexPath.row]
-        presenter.presentDetail(movie: selectedMovies)
-    }
-
-    private func configureImagePaths(configuration: Configuration, movies: [Movie]) async {
-        let imagesSecureBaseURL = configuration.images.secureBaseURL ?? ""
-        let imagesSize = configuration.images.logoSizes.first{ $0 == "w300" } ?? ""
-        self.movies = movies.map { .init(movie: $0, imagePath: imagesSecureBaseURL + imagesSize + $0.image) }
+        presenter.presentDetail(movie: selectedMovies, configuration: configuration)
     }
 
     @MainActor
-    private func present(movies: [Movie]) {
-        presenter.present(movies: movies)
+    private func present(movies: [Movie], configuration: Configuration) {
+        presenter.present(movies: movies, configuration: configuration)
     }
 }

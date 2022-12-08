@@ -8,11 +8,11 @@
 import UIKit
 
 enum DetailFactory {
-    typealias Parameters = Movie
+    typealias Parameters = DetailViewModel
 
     static func make(_ parameters: Parameters) -> UIViewController {
         let presenter = DetailPresenter()
-        let interactor = DetailInteractor(movie: parameters, presenter: presenter)
+        let interactor = DetailInteractor(viewModel: parameters, presenter: presenter)
         let viewController = DetailViewController(interactor: interactor)
 
         presenter.viewController = viewController

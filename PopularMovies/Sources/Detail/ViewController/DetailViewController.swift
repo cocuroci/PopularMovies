@@ -9,7 +9,7 @@ import UIKit
 import Kingfisher
 
 protocol DetailViewDisplaying: AnyObject {
-    func display(movie: Movie)
+    func display(viewModel: DetailViewModel)
 }
 
 final class DetailViewController: BaseViewController {
@@ -141,10 +141,10 @@ final class DetailViewController: BaseViewController {
 }
 
 extension DetailViewController: DetailViewDisplaying {
-    func display(movie: Movie) {
-        titleLabel.text = movie.title
-        voteAverageLabel.text = "\(movie.voteAverage)"
-        descriptionLabel.text = movie.overview
-        avatarImageView.kf.setImage(with: URL(string: movie.image))
+    func display(viewModel: DetailViewModel) {
+        titleLabel.text = viewModel.title
+        voteAverageLabel.text = viewModel.voteAverage
+        descriptionLabel.text = viewModel.description
+        avatarImageView.kf.setImage(with: URL(string: viewModel.imageURL))
     }
 }

@@ -9,13 +9,13 @@ import Foundation
 
 protocol DetailPresenting {
     var viewController: DetailViewDisplaying? { get }
-    func present(movie: Movie)
+    func present(viewModel: DetailViewModel)
 }
 
 final class DetailPresenter: DetailPresenting {
     weak var viewController: DetailViewDisplaying?
 
-    func present(movie: Movie) {
-        viewController?.display(movie: movie)
+    func present(viewModel: DetailViewModel) {
+        viewController?.display(viewModel: viewModel)
     }
 }

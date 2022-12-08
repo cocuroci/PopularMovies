@@ -90,13 +90,13 @@ final class MovieTableViewCell: UITableViewCell, ViewConfiguration {
     func configureViews() {
         backgroundColor = .clear
         selectionStyle = .none
+        avatarImageView.kf.indicatorType = .activity
     }
 
-    func configure(model: Movie) {
-        titleLabel.text = model.title
-        dateLabel.text = model.releaseDate
-        avatarImageView.kf.indicatorType = .activity
-        avatarImageView.kf.setImage(with: URL(string: model.image))
+    func configure(viewModel: MovieViewModel) {
+        titleLabel.text = viewModel.title
+        dateLabel.text = viewModel.releaseDate
+        avatarImageView.kf.setImage(with: URL(string: viewModel.imageURL))
     }
 
     override func prepareForReuse() {

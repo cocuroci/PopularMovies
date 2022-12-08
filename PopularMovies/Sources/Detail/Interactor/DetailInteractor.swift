@@ -12,15 +12,15 @@ protocol DetailInteracting {
 }
 
 final class DetailInteractor: DetailInteracting {
-    private let movie: Movie
+    private let viewModel: DetailViewModel
     private let presenter: DetailPresenting
 
-    init(movie: Movie, presenter: DetailPresenting) {
-        self.movie = movie
+    init(viewModel: DetailViewModel, presenter: DetailPresenting) {
+        self.viewModel = viewModel
         self.presenter = presenter
     }
 
     func showMovie() {
-        presenter.present(movie: movie)
+        presenter.present(viewModel: viewModel)
     }
 }

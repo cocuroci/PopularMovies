@@ -8,7 +8,7 @@
 import UIKit
 
 enum HomeAction {
-    case detail(with: Movie)
+    case detail(with: DetailViewModel)
 }
 
 protocol HomeCoordinating {
@@ -21,8 +21,8 @@ final class HomeCoordinator: HomeCoordinating {
 
     func perform(action: HomeAction) {
         switch action {
-        case let .detail(with: movie):
-            let detailViewController = DetailFactory.make(movie)
+        case let .detail(with: viewModel):
+            let detailViewController = DetailFactory.make(viewModel)
             viewController?.navigationController?.pushViewController(detailViewController, animated: true)
         }
     }

@@ -8,12 +8,12 @@
 import UIKit
 
 protocol HomeViewDisplaying: AnyObject {
-    func display(movies: [Movie])
+    func display(viewModels: [MovieViewModel])
 }
 
 final class HomeViewController: BaseViewController {
     private let interactor: HomeInteracting
-    private var movies: [Movie] = []
+    private var viewModels: [MovieViewModel] = []
 
     init(interactor: HomeInteracting) {
         self.interactor = interactor
@@ -62,7 +62,7 @@ final class HomeViewController: BaseViewController {
 
 extension HomeViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        movies.count
+        viewModels.count
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -70,7 +70,7 @@ extension HomeViewController: UITableViewDataSource {
             return UITableViewCell()
         }
 
-        cell.configure(model: movies[indexPath.row])
+        cell.configure(viewModel: viewModels[indexPath.row])
         return cell
     }
 }
@@ -83,8 +83,8 @@ extension HomeViewController: UITableViewDelegate {
 }
 
 extension HomeViewController: HomeViewDisplaying {
-    func display(movies: [Movie]) {
-        self.movies = movies
+    func display(viewModels: [MovieViewModel]) {
+        self.viewModels = viewModels
         tableView.reloadData()
     }
 }
