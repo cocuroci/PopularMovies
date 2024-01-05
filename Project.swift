@@ -3,6 +3,11 @@ import ProjectDescription
 let project = Project(
     name: "PopularMovies",
     organizationName: "Cocuroci",
+    options: .options(
+        automaticSchemesOptions: .disabled,
+        disableBundleAccessors: true,
+        disableSynthesizedResourceAccessors: true
+    ),
     packages: [
         .remote(url: "https://github.com/onevcat/Kingfisher", requirement: .upToNextMajor(from: "7.0.0"))
     ],
