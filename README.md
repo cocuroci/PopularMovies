@@ -19,22 +19,21 @@ A API utilizada para a consulta desses filmes foi a `TheMovieDB`
 ## Requisitos
 
 - XCode 14
-- Tuist ~
+- Tuist 3.15.0
 - Swift 5.7
 
 ## Configuração
 
 Para `rodar` o projeto é necessário instalar o `Mise` e o `Tuist`
 
-Rodar os comandos abaixo no terminal na raiz do projeto
-- `tuist fetch`
-- `tuist project`
+Rodar o comando abaixo no terminal na raiz do projeto
+- `tuist generate`
 
-Com tudo instalado basta criar um arquivo chamado `Config.swift` e adicionar uma variávem estática chamada `api`, exemplo:
+Com tudo instalado basta criar um arquivo chamado `Constants.swift` e adicionar uma variávem estática chamada `apiKey`, exemplo:
 
 ```
-enum Config {
-    static let api = "SUA_API_KEY"
+enum Constants {
+    static let apiKey = "SUA_API_KEY"
 }
 ```
 
