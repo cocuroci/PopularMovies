@@ -1,5 +1,5 @@
 //
-//  PopularMoviesDataFetcherSpec.swift
+//  PopularMoviesDataFetcherTest.swift
 //  PopularMoviesTests
 //
 //  Created by Andre on 19/03/24.
