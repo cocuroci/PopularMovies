@@ -7,13 +7,22 @@
 
 import Foundation
 
-struct Movie: Identifiable, Decodable {
+struct Movie: Identifiable, Equatable, Decodable {
     let id: Int
     let title: String
     let releaseDate: String
     let image: String
     let overview: String
     let voteAverage: Float
+
+    init(id: Int, title: String, releaseDate: String, image: String, overview: String, voteAverage: Float) {
+        self.id = id
+        self.title = title
+        self.releaseDate = releaseDate
+        self.image = image
+        self.overview = overview
+        self.voteAverage = voteAverage
+    }
 
     init(movie: Movie, imagePath: String) {
         self.id = movie.id
