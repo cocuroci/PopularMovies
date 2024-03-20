@@ -47,9 +47,16 @@ final class HomeInteractorTest: XCTestCase {
     }
 
     func testDidSelectMovieShouldCallPresentDetail() async {
+        let expectation = XCTestExpectation(description: #function)
         popularMoviesDataFetcherMock.request = [.mock]
         sut.getPopularMovies()
         sut.didSelectMovie(with: .init(row: 0, section: 0))
-        XCTAssertEqual(homePresenterSpy.presentDetailCalled, 1)
+
+        DispatchQueue.main.asyncAfter(deadline: .now() + .milliseconds(500)) {
+            XCTAssertEqual(self.homePresenterSpy.presentDetailCalled, 1)
+            expectation.fulfill()
+        }
+
+        wait(for: [expectation], timeout: 1)
     }
 }

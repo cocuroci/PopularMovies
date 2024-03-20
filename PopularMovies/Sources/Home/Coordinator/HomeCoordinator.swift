@@ -7,7 +7,7 @@
 
 import UIKit
 
-enum HomeAction {
+enum HomeAction: Equatable {
     case detail(with: DetailViewModel)
 }
 

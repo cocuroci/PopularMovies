@@ -8,7 +8,7 @@
 
 import Foundation
 
-struct DetailViewModel {
+struct DetailViewModel: Equatable {
     let title: String
     let imageURL: String
     let voteAverage: String
