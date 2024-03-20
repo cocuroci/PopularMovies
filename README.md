@@ -6,7 +6,7 @@ Projeto inspirado no desafio [7DaysOfCode](https://7daysofcode.io/matricula/ios)
 
 ## Descrição
 
-O PopularMovies é um aplicativo simples onde a home exibe uma lista dos filmes populares com possibilidade de ver mais detalhes desse filme acessando a view de detalhes.
+O PopularMovies é um aplicativo simples que contém uma lista dos filmes mais populares e com possibilidade de ver mais detalhes do filme selecionado.
 
 A API utilizada para a consulta desses filmes foi a `TheMovieDB`
 
@@ -46,11 +46,11 @@ Hoje eu faria pequenas melhorias no projeto como:
     - Quem sabe um módulo `shared` com pequenas funcionalidades que poderiam ser utilizados em outros módulos
     - Separar as funcionalidades de `Home` e `Detail` em um módulo a parte
     - O App principal ser apenas uma casca que monta os módulos conforme a necessidade
-    - Criar testes unitários
-
+    - Criar testes unitários restantes
+ 
 ## Exemplos de testes unitários
 
-Como o projeto `TheMovieDB` não contém testes, abaixo vou listar alguns repositórios mais antigos com testes:
+Como o projeto `TheMovieDB` não contém todos os testes, abaixo vou listar alguns repositórios mais antigos com testes:
 - <https://github.com/cocuroci/app-tmdb/tree/master/TMDBTests>
 - <https://github.com/cocuroci/FeedMe/tree/main/FeedMeTests>
 - <https://github.com/cocuroci/tweet-sentiment-analysis/tree/main/TweetSentimentAnalysis/TweetSentimentAnalysisTests>
