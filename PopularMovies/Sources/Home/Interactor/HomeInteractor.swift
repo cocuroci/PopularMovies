@@ -8,7 +8,7 @@
 import Foundation
 
 protocol HomeInteracting {
-    func getPopularMovies()
+    func getPopularMovies() async
     func didSelectMovie(with indexPath: IndexPath)
 }
 
@@ -29,12 +29,10 @@ final class HomeInteractor: HomeInteracting {
         self.presenter = presenter
     }
 
-    func getPopularMovies() {
-        Task {
-            configuration = await configurationDataFetcher.configuration()
-            movies = await moviesDataFetcher.getPopularMovies()
-            await present(movies: movies, configuration: configuration)
-        }
+    func getPopularMovies() async {
+        configuration = await configurationDataFetcher.configuration()
+        movies = await moviesDataFetcher.getPopularMovies()
+        await present(movies: movies, configuration: configuration)
     }
 
     func didSelectMovie(with indexPath: IndexPath) {
@@ -46,8 +44,7 @@ final class HomeInteractor: HomeInteracting {
         presenter.presentDetail(movie: selectedMovies, configuration: configuration)
     }
 
-    @MainActor
-    private func present(movies: [Movie], configuration: Configuration) {
-        presenter.present(movies: movies, configuration: configuration)
+    private func present(movies: [Movie], configuration: Configuration) async {
+        await presenter.present(movies: movies, configuration: configuration)
     }
 }

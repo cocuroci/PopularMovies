@@ -8,7 +8,7 @@
 import UIKit
 
 protocol HomeViewDisplaying: AnyObject {
-    func display(viewModels: [MovieViewModel])
+    func display(viewModels: [MovieViewModel]) async
 }
 
 final class HomeViewController: BaseViewController {
@@ -33,7 +33,9 @@ final class HomeViewController: BaseViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        interactor.getPopularMovies()
+        Task {
+            await interactor.getPopularMovies()
+        }
     }
 
     override func buildViewHierarchy() {
@@ -83,7 +85,7 @@ extension HomeViewController: UITableViewDelegate {
 }
 
 extension HomeViewController: HomeViewDisplaying {
-    func display(viewModels: [MovieViewModel]) {
+    func display(viewModels: [MovieViewModel]) async {
         self.viewModels = viewModels
         tableView.reloadData()
     }

@@ -29,16 +29,8 @@ final class HomeInteractorTest: XCTestCase {
     }
 
     func testGetPopularMoviesShouldCallPresent() async {
-        let expectation = XCTestExpectation(description: #function)
-
-        sut.getPopularMovies()
-
-        DispatchQueue.main.asyncAfter(deadline: .now() + .milliseconds(500)) {
-            XCTAssertEqual(self.homePresenterSpy.presentCalled, 1)
-            expectation.fulfill()
-        }
-
-        wait(for: [expectation], timeout: 1)
+        await sut.getPopularMovies()
+        XCTAssertEqual(homePresenterSpy.presentCalled, 1)
     }
 
     func testDidSelectMovieWhenInvalidIndexPathShouldNotCallPresentDetail() async {
@@ -46,17 +38,11 @@ final class HomeInteractorTest: XCTestCase {
         XCTAssertEqual(self.homePresenterSpy.presentDetailCalled, 0)
     }
 
-    func testDidSelectMovieShouldCallPresentDetail() async {
-        let expectation = XCTestExpectation(description: #function)
+    func testDidSelectMovieShouldCallPresentDetail1() async {
         popularMoviesDataFetcherMock.request = [.mock]
-        sut.getPopularMovies()
+        await sut.getPopularMovies()
+        sut.didSelectMovie(with: .init(row: 0, section: 0))
 
-        DispatchQueue.main.asyncAfter(deadline: .now() + .milliseconds(500)) {
-            self.sut.didSelectMovie(with: .init(row: 0, section: 0))
-            XCTAssertEqual(self.homePresenterSpy.presentDetailCalled, 1)
-            expectation.fulfill()
-        }
-
-        wait(for: [expectation], timeout: 1)
+        XCTAssertEqual(self.homePresenterSpy.presentDetailCalled, 1)
     }
 }

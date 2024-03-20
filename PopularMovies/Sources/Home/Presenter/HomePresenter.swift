@@ -10,7 +10,7 @@ import Foundation
 protocol HomePresenting {
     var coordinator: HomeCoordinating { get }
     var viewController: HomeViewDisplaying? { get }
-    func present(movies: [Movie], configuration: Configuration)
+    func present(movies: [Movie], configuration: Configuration) async
     func presentDetail(movie: Movie, configuration: Configuration)
 }
 
@@ -22,8 +22,8 @@ final class HomePresenter: HomePresenting {
         self.coordinator = coordinator
     }
 
-    func present(movies: [Movie], configuration: Configuration) {
-        viewController?.display(viewModels: cofigureViewModel(configuration: configuration, movies: movies))
+    func present(movies: [Movie], configuration: Configuration) async {
+        await viewController?.display(viewModels: cofigureViewModel(configuration: configuration, movies: movies))
     }
 
     func presentDetail(movie: Movie, configuration: Configuration) {

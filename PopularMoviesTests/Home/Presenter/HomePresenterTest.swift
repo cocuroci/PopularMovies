@@ -22,8 +22,8 @@ final class HomePresenterTest: XCTestCase {
         sut.viewController = homeViewDisplaySpy
     }
 
-    func testPresentShouldCallDisplay() {
-        sut.present(movies: [], configuration: .empty)
+    func testPresentShouldCallDisplay() async {
+        await sut.present(movies: [], configuration: .empty)
         XCTAssertEqual(homeViewDisplaySpy.displayCalled, 1)
     }
 
