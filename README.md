@@ -50,7 +50,7 @@ Hoje eu faria pequenas melhorias no projeto como:
  
 ## Exemplos de testes unitários
 
-Como o projeto `TheMovieDB` não contém todos os testes, abaixo vou listar alguns repositórios mais antigos com testes:
+Como o projeto `PopularMovies` não contém todos os testes, abaixo vou listar alguns repositórios mais antigos com testes:
 - <https://github.com/cocuroci/app-tmdb/tree/master/TMDBTests>
 - <https://github.com/cocuroci/FeedMe/tree/main/FeedMeTests>
 - <https://github.com/cocuroci/tweet-sentiment-analysis/tree/main/TweetSentimentAnalysis/TweetSentimentAnalysisTests>
